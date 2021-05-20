@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ValidationsDTO {
+
     // Put the attributes only
 	
 	@NotNull
@@ -35,4 +36,7 @@ public class ValidationsDTO {
 	@NotNull
 	private LocalDate recordEffectiveEndDate;
 
+
+    private String loadActionType;
+    private String loadNumberID;
 }
