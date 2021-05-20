@@ -1,6 +1,7 @@
 package com.validations.dto;
 
 public class ValidationsDTO {
-    // Put the attributes only
 
+    private String loadActionType;
+    private String loadNumberID;
 }
