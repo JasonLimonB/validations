@@ -26,4 +26,9 @@ public class ValidationsService {
         return matcher.matches();
     }
 
+    private boolean originOrganizationCountryCode( String value ){
+        if( value == null ) return false;
+        return value.length() == 2;
+    }
+
 }
