@@ -1,9 +1,13 @@
 package com.validations.dto;
 
-
 import java.sql.Time;
 import java.time.LocalDate;
+
+import javax.validation.constraints.Max;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +20,7 @@ public class ValidationsDTO {
 
     // Put the attributes only
 	
-	@NotNull
+	@NotNull(message = "null")
 	private String loadActiontype;
 	@NotNull
 	private int loadCreateDOW;
@@ -33,10 +37,10 @@ public class ValidationsDTO {
 	private Time loadLatestPossibleArrivalTime;
 	private int loadLatestArrivalDayOfWeek;
 	private String unloadLoadDestinationCountryCode;
-	@NotNull
+	//@NotNull
 	private LocalDate recordEffectiveEndDate;
-
-
+	
+	
     private String loadActionType;
     private String loadNumberID;
 }
