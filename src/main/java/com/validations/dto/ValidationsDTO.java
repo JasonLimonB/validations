@@ -15,9 +15,19 @@ import lombok.NoArgsConstructor;
 public class ValidationsDTO {
 
 	@NotNull
-	private String loadActiontype;
+	private String loadActionType;
+	@NotNull
+	private String loadNumberID;
+	@NotNull
+	private String recordEffectiveStartDate;
 	@NotNull
 	private int loadCreateDOW;
+	@NotNull
+	private String originOrganizationCountryCode;
+	@NotNull
+	private String originOrganizationNumber;
+	@NotNull
+	private String originSortType;
 	@NotNull
 	private String destinationOrganizationCountryCode;
 	@NotNull
@@ -27,16 +37,22 @@ public class ValidationsDTO {
 	@NotNull
 	private String serviceTypeCodeMnemonicText;
 	@NotNull
-	private int loadPieceQuantity;
+	private String loadRouteCode;
+	@NotNull
+	private  String equipmentTrailerTypeCode;
+	@NotNull
+	private Integer loadPieceQuantity;
+	@NotNull
+	private Integer loadVolumeUtilizationPercent;
+	private Time loadEarliestPossibleDepartureTimestamp;
+	private Integer loadEarliestDepartureDayOfWeek;
 	private Time loadLatestPossibleArrivalTime;
 	private int loadLatestArrivalDayOfWeek;
 	private String unloadLoadDestinationCountryCode;
+	private String unloadLoadDestinationOrganizationNumber;
+	private String unloadLoadDestinationSortType;
 	@NotNull
 	private LocalDate recordEffectiveEndDate;
 
-
-    private String loadActionType;
-    private String loadNumberID;
-    private String originOrganizationCountryCode;
 
 }
