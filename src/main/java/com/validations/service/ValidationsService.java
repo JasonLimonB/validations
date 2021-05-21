@@ -19,6 +19,7 @@ public class ValidationsService {
     
     public Response validations(ValidationsDTO dto) {
 		Response response = new Response();
+		response.setData(dto);
 		return response;
 	}
 	
@@ -82,14 +83,12 @@ public class ValidationsService {
 			log.error("{}", e.getMessage());
 			return false;
 		}
-	}
-	
-	
+	}	
 	
 	public boolean validation_LoadPieceQuantity(int loPiQuan) {
 		ValidationsDTO validDTO =  new ValidationsDTO();
 		try {
-			pattern = Pattern.compile("[0-9]{1,4}"); //checar al poner 01234 lo acepta 
+			pattern = Pattern.compile("[0-9]{1,4}"); 
 			matcher = pattern.matcher(Integer.toString(loPiQuan));
 			if (matcher.matches()) {
 				validDTO.setLoadCreateDOW(loPiQuan);
@@ -128,11 +127,11 @@ public class ValidationsService {
 	public boolean validation_RecordEffectiveEndDate(LocalDate reEffecEndDate) {
 		ValidationsDTO validDTO =  new ValidationsDTO();
 		try {
-			pattern = Pattern.compile("\\d{4}/\\d{2}/\\d{2}");
+			pattern = Pattern.compile("^(((19|2[0-9])[0-9]{2})-(0[13578]|10|12)-(0[1-9]|[12][0-9]|3[01]))$"  + "|^(((19|2[0-9])[0-9]{2})-(0[469]|11)-(0[1-9]|[12][0-9]|30))$");
 	        matcher = pattern.matcher(reEffecEndDate.toString());
-	        System.out.println(LocalDate.now());
+	        System.out.println(reEffecEndDate);
 	        if (matcher.matches()) {
-				validDTO.setRecordEffectiveEndDate(reEffecEndDate);
+	        	validDTO.setRecordEffectiveEndDate(reEffecEndDate);
 				return true;
 			}
 			return false;
