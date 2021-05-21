@@ -1,8 +1,8 @@
 package com.validations.dto;
 
-
 import java.sql.Time;
 import java.time.LocalDate;
+
 import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
@@ -13,6 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ValidationsDTO {
+
 
 	@NotNull
 	private String loadActionType;
