@@ -37,7 +37,7 @@ public class Controller {
 	}
 	
 	@PostMapping(path = "/validate2")
-	public ResponseEntity<Response> validation_LoadCreateDOW(@RequestParam(name = "load") int loadCreaDOW) {
+	public ResponseEntity<Response> validation_LoadCreateDOW(@RequestParam(name = "load") Integer loadCreaDOW) {
 		Response response = services.validation_LoadCreateDOW(loadCreaDOW);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
@@ -67,7 +67,7 @@ public class Controller {
 	}
 	
 	@PostMapping(path = "/validate7")
-	public ResponseEntity<Response> validation_LoadPieceQuantity(@RequestParam(name = "load") int loPiQuan) {
+	public ResponseEntity<Response> validation_LoadPieceQuantity(@RequestParam(name = "load") Integer loPiQuan) {
 		Response response = services.validation_LoadPieceQuantity(loPiQuan);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
@@ -79,7 +79,7 @@ public class Controller {
 	}
 	
 	@PostMapping(path = "/validate9")
-	public ResponseEntity<Response> validation_LoadLatestArrivalDayOfWeek(@RequestParam(name = "load") int ArrDayOfWeek) {
+	public ResponseEntity<Response> validation_LoadLatestArrivalDayOfWeek(@RequestParam(name = "load") Integer ArrDayOfWeek) {
 		Response response = services.validation_LoadLatestArrivalDayOfWeek(ArrDayOfWeek);
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}

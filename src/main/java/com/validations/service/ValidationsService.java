@@ -40,7 +40,7 @@ public class ValidationsService {
 		try {
 			if (loActType.equals("ADD") || loActType.equals("UPDATE")) {
 				validDTO.setLoadActiontype(loActType);
-				response.setData(validDTO);
+				response.setData(validDTO.getLoadActiontype());
 				return response;
 			}
 			return errorResponse("Invalid LoadActiontype");
@@ -50,7 +50,7 @@ public class ValidationsService {
 		}
 	}
 	
-	public Response validation_LoadCreateDOW(int loadCreaDOW) {
+	public Response validation_LoadCreateDOW(Integer loadCreaDOW) {
 		Response response = new Response();
 		ValidationsDTO validDTO =  new ValidationsDTO();
 		try {
@@ -58,7 +58,7 @@ public class ValidationsService {
 			matcher = pattern.matcher(Integer.toString(loadCreaDOW));
 			if (matcher.matches()) {
 				validDTO.setLoadCreateDOW(loadCreaDOW);
-				response.setData(validDTO);
+				response.setData(validDTO.getLoadCreateDOW());
 				return response;			
 			}
 			return errorResponse("Invalid LoadCreateDOW");
@@ -76,7 +76,7 @@ public class ValidationsService {
 			matcher = pattern.matcher(desOrgCounCod);
 			if (matcher.matches()) {
 				validDTO.setDestinationOrganizationCountryCode(desOrgCounCod);
-				response.setData(validDTO);
+				response.setData(validDTO.getDestinationOrganizationCountryCode());
 				return response;			
 			}
 			return errorResponse("Invalid DestinationOrganizationCountryCode");
@@ -94,7 +94,7 @@ public class ValidationsService {
 			matcher = pattern.matcher(desOrgNum);
 			if (matcher.matches()) {
 				validDTO.setDestinationOrganizationNumber(desOrgNum);
-				response.setData(validDTO);
+				response.setData(validDTO.getDestinationOrganizationNumber());
 				return response;			
 			}
 			return errorResponse("Invalid DestinationOrganizationNumber");
@@ -107,7 +107,7 @@ public class ValidationsService {
 	public Response validation_DestinationSortType(String desSortType) {
 		Response response = new Response();
 		ValidationsDTO validDTO =  new ValidationsDTO();
-		try { 
+		if(desSortType != null) { 
 			Map<String, String> sortType = new HashMap<>();
 			sortType.put("A","AFTERNOON");	
 			sortType.put("C","CPU-CENTRAL PICK UP");
@@ -124,16 +124,14 @@ public class ValidationsService {
 				return response;			
 			}
 			return errorResponse("Invalid DestinationSortType");
-		}catch (Exception e) {
-			log.error("{}", e.getMessage());
-			return errorResponse("Exception: "+e);
 		}
+		return errorResponse("Invalid, DestinationSortType can't be null");
 	}
 	
 	public Response validation_ServiceTypeCodeMnemonicText(String serTyCoMnemTex) {
 		Response response = new Response();
 		ValidationsDTO validDTO =  new ValidationsDTO();
-		try { 
+		if(serTyCoMnemTex != null) {
 			HashSet<String> mnemonicText = new HashSet<>();
 			mnemonicText.add("1DA");	
 			mnemonicText.add("2DA");
@@ -151,25 +149,23 @@ public class ValidationsService {
 			mnemonicText.add("I");
 			if (mnemonicText.contains(serTyCoMnemTex)) {
 				validDTO.setServiceTypeCodeMnemonicText(serTyCoMnemTex);
-				response.setData(validDTO);
+				response.setData(validDTO.getServiceTypeCodeMnemonicText());
 				return response;			
 			}
 			return errorResponse("Invalid ServiceTypeCodeMnemonicText");
-		}catch (Exception e) {
-			log.error("{}", e.getMessage());
-			return errorResponse("Exception: "+e);
 		}
+			return errorResponse("ServiceTypeCodeMnemonicText can't be null");
 	}
 	
-	public Response validation_LoadPieceQuantity(int loPiQuan) {
+	public Response validation_LoadPieceQuantity(Integer loPiQuan) {
 		Response response = new Response();
 		ValidationsDTO validDTO =  new ValidationsDTO();
 		try {
 			pattern = Pattern.compile("[0-9]{1,4}"); 
 			matcher = pattern.matcher(Integer.toString(loPiQuan));
 			if (matcher.matches()) {
-				validDTO.setLoadCreateDOW(loPiQuan);
-				response.setData(validDTO);
+				validDTO.setLoadPieceQuantity(loPiQuan);
+				response.setData(validDTO.getLoadPieceQuantity());
 				return response;			
 			}
 			return errorResponse("Invalid LoadPieceQuantity");
@@ -186,7 +182,7 @@ public class ValidationsService {
 		matcher = pattern.matcher(loadLatPoArrTime);
 		if (matcher.matches()) {
 			validDTO.setLoadLatestPossibleArrivalTime(LocalTime.parse(loadLatPoArrTime));
-			response.setData(validDTO);
+			response.setData(validDTO.getLoadLatestPossibleArrivalTime());
 			return response;			
 		}
 		return errorResponse("Invalid LoadLatestPossibleArrivalTime");	
@@ -199,7 +195,7 @@ public class ValidationsService {
 		matcher = pattern.matcher(Integer.toString(ArrDayOfWeek));
 		if (matcher.matches()) {
 			validDTO.setLoadLatestArrivalDayOfWeek(ArrDayOfWeek);
-			response.setData(validDTO);
+			response.setData(validDTO.getLoadLatestArrivalDayOfWeek());
 			return response;			
 		}
 		return errorResponse("Invalid LoadLatestArrivalDayOfWeek");	
@@ -212,7 +208,7 @@ public class ValidationsService {
 		matcher = pattern.matcher(unloadDestCounCod);
 		if (matcher.matches()) {
 			validDTO.setUnloadLoadDestinationCountryCode(unloadDestCounCod);
-			response.setData(validDTO);
+			response.setData(validDTO.getUnloadLoadDestinationCountryCode());
 			return response;			
 		}
 		return errorResponse("Invalid UnloadLoadDestinationCountryCode");		
@@ -228,7 +224,7 @@ public class ValidationsService {
 	        matcher = pattern.matcher(reEffecEndDate);
 	        if (matcher.matches()) {
 	        	validDTO.setRecordEffectiveEndDate(LocalDate.parse(reEffecEndDate));
-	        	response.setData(validDTO);
+	        	response.setData(validDTO.getRecordEffectiveEndDate());
 				return response;			
 			}
 			return errorResponse("Invalid RecordEffectiveEndDate");

@@ -41,7 +41,7 @@ public class ValidationsDTO {
 	@NotNull
 	@DecimalMin(value = "1", message = "loadCreateDOW needs to be between 1-7")
 	@DecimalMax(value = "7", message = "loadCreateDOW needs to be between 1-7")
-	private int loadCreateDOW;
+	private Integer loadCreateDOW;
 	
 	@NotNull
 	private String originOrganizationCountryCode;
@@ -76,12 +76,12 @@ public class ValidationsDTO {
 	
 	@NotNull
 	@Digits(integer = 4, fraction = 0, message = "Invalid loadPieceQuantity")
-	private int loadPieceQuantity;
+	private Integer loadPieceQuantity;
 	
 	@NotNull
 	private Integer loadVolumeUtilizationPercent;
 	
-	private Time loadEarliestPossibleDepartureTimestamp;
+	//private Time loadEarliestPossibleDepartureTimestamp;
 	
 	private Integer loadEarliestDepartureDayOfWeek;
 	
@@ -90,7 +90,7 @@ public class ValidationsDTO {
 	
 	@DecimalMin(value = "1", message = "loadLatestArrivalDayOfWeek needs to be between 1-7")
 	@DecimalMax(value = "7", message = "loadLatestArrivalDayOfWeek needs to be between 1-7")
-	private int loadLatestArrivalDayOfWeek;
+	private Integer loadLatestArrivalDayOfWeek;
 	
 	@Pattern(regexp = "[a-zA-Z]{2,2}", message = "Invalid unloadLoadDestinationCountryCode")
 	private String unloadLoadDestinationCountryCode;
