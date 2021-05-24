@@ -264,6 +264,12 @@ class ValidationsServiceTest {
 	public void testIsValidLoadRouteCodeCorrectParam(){
 		assertTrue(services.isValidLoadRouteCode("A1"));
 	}
+	
+	@Test
+	public void testIsValidLoadRouteCodeCorrectParam2(){
+		assertTrue(services.isValidLoadRouteCode("A"));
+	} 
+	
 	@Test
 	public void testIsValidLoadRouteCodeIncorrectParam(){
 		assertFalse(services.isValidLoadRouteCode("A1B1ss"));
@@ -320,6 +326,7 @@ class ValidationsServiceTest {
 	public void testIsValidLoadEarliestDepartureDayOfWeekCorrectParam(){
 		assertTrue(services.isValidLoadEarliestDepartureDayOfWeek(5));
 	}
+	
 	@Test
 	public void testIsValidLoadEarliestDepartureDayOfWeekIncorrectParam(){
 		assertFalse(services.isValidLoadEarliestDepartureDayOfWeek(10));
