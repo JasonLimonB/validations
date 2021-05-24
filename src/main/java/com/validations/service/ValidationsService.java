@@ -1,7 +1,6 @@
 package com.validations.service;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.validations.dto.Response;
@@ -12,9 +11,7 @@ import java.util.HashSet;
 import java.util.Map;
 import lombok.extern.slf4j.Slf4j;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.LocalTime;
-import java.time.format.DateTimeFormatter;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -46,7 +43,7 @@ public class ValidationsService {
 				response.setData(validDTO);
 				return response;
 			}
-			return errorResponse("");
+			return errorResponse("Invalid LoadActiontype");
 		}catch (Exception e) {
 			log.error("{}", e.getMessage());
 			return errorResponse("Exception: "+e);
@@ -64,7 +61,7 @@ public class ValidationsService {
 				response.setData(validDTO);
 				return response;			
 			}
-			return errorResponse("");
+			return errorResponse("Invalid LoadCreateDOW");
 		}catch (Exception e) {
 			log.error("{}", e.getMessage());
 			return errorResponse("Exception: "+e);
@@ -82,7 +79,7 @@ public class ValidationsService {
 				response.setData(validDTO);
 				return response;			
 			}
-			return errorResponse("");
+			return errorResponse("Invalid DestinationOrganizationCountryCode");
 		}catch (Exception e) {
 			log.error("{}", e.getMessage());
 			return errorResponse("Exception: "+e);
@@ -100,7 +97,7 @@ public class ValidationsService {
 				response.setData(validDTO);
 				return response;			
 			}
-			return errorResponse("");
+			return errorResponse("Invalid DestinationOrganizationNumber");
 		}catch (Exception e) {
 			log.error("{}", e.getMessage());
 			return errorResponse("Exception: "+e);
@@ -126,7 +123,7 @@ public class ValidationsService {
 				response.setData(validDTO);
 				return response;			
 			}
-			return errorResponse("");
+			return errorResponse("Invalid DestinationSortType");
 		}catch (Exception e) {
 			log.error("{}", e.getMessage());
 			return errorResponse("Exception: "+e);
@@ -157,7 +154,7 @@ public class ValidationsService {
 				response.setData(validDTO);
 				return response;			
 			}
-			return errorResponse("");
+			return errorResponse("Invalid ServiceTypeCodeMnemonicText");
 		}catch (Exception e) {
 			log.error("{}", e.getMessage());
 			return errorResponse("Exception: "+e);
@@ -175,7 +172,7 @@ public class ValidationsService {
 				response.setData(validDTO);
 				return response;			
 			}
-			return errorResponse("");
+			return errorResponse("Invalid LoadPieceQuantity");
 		}catch (Exception e) {
 			log.error("{}", e.getMessage());
 			return errorResponse("Exception: "+e);
@@ -192,7 +189,7 @@ public class ValidationsService {
 			response.setData(validDTO);
 			return response;			
 		}
-		return errorResponse("");	
+		return errorResponse("Invalid LoadLatestPossibleArrivalTime");	
 	}
 		
 	public Response validation_LoadLatestArrivalDayOfWeek(int ArrDayOfWeek) {
@@ -205,7 +202,7 @@ public class ValidationsService {
 			response.setData(validDTO);
 			return response;			
 		}
-		return errorResponse("");	
+		return errorResponse("Invalid LoadLatestArrivalDayOfWeek");	
 	}
 	
 	public Response validation_UnloadLoadDestinationCountryCode(String unloadDestCounCod) {
@@ -218,7 +215,7 @@ public class ValidationsService {
 			response.setData(validDTO);
 			return response;			
 		}
-		return errorResponse("");		
+		return errorResponse("Invalid UnloadLoadDestinationCountryCode");		
 	}
 	
 	
@@ -234,7 +231,7 @@ public class ValidationsService {
 	        	response.setData(validDTO);
 				return response;			
 			}
-			return errorResponse("");
+			return errorResponse("Invalid RecordEffectiveEndDate");
 		}catch (Exception e) {
 			log.error("{}", e.getMessage());
 			return errorResponse("Exception: "+e);
