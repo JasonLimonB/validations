@@ -22,7 +22,7 @@ class ControllerTest {
 	ValidationsService services;
 
 	@Test
-	public void testValidations() {			
+	public void testValidations() {		 	
 		ValidationsDTO dto= new ValidationsDTO();
 		assertEquals(HttpStatus.OK, controller.validations(dto).getStatusCode());
 	}
