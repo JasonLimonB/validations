@@ -81,7 +81,7 @@ public class ValidationsDTO {
 	@NotNull
 	private Integer loadVolumeUtilizationPercent;
 	
-	//private Time loadEarliestPossibleDepartureTimestamp;
+	private Time loadEarliestPossibleDepartureTimestamp;
 	
 	private Integer loadEarliestDepartureDayOfWeek;
 	
