@@ -178,4 +178,176 @@ class ValidationsServiceTest {
 	public void testValidation_RecordEffectiveEndDateNull() {		
 		assertFalse(services.validation_RecordEffectiveEndDate(null).isResult());
 	}
+
+	@Test
+	public void testIsValidLoadNumberIDNull(){
+		assertFalse(services.isValidLoadNumberID(null));
+	}
+	@Test
+	public void testIsValidLoadNumberIDStringValid(){
+		assertTrue(services.isValidLoadNumberID("1234567890"));
+	}
+	@Test
+	public void testIsValidLoadNumberIDStringInvalid(){
+		assertFalse(services.isValidLoadNumberID("1"));
+	}
+	@Test
+	public void testIsValidLoadNumberIDEmptyString(){
+		assertFalse(services.isValidLoadNumberID(""));
+	}
+
+	@Test
+	public void testIsValidRecordEffectiveStartDateNull(){
+		assertFalse(services.isValidRecordEffectiveStartDate(null));
+	}
+	@Test
+	public void testIsValidRecordEffectiveStartDateBadFormat(){
+		assertFalse(services.isValidRecordEffectiveStartDate("12/12/2021"));
+	}
+	@Test
+	public void testIsValidRecordEffectiveStartDateEmptyString(){
+		assertFalse(services.isValidRecordEffectiveStartDate(""));
+	}
+	@Test
+	public void testIsValidRecordEffectiveStartDateCorrectFormat(){
+		assertTrue(services.isValidRecordEffectiveStartDate("2021/12/12"));
+	}
+
+	@Test
+	public void testIsValidOriginOrganizationCountryCodeCorrectLength(){
+		assertTrue(services.isValidOriginOrganizationCountryCode("12"));
+	}
+	@Test
+	public void testIsValidOriginOrganizationCountryCodeBadLength(){
+		assertFalse(services.isValidOriginOrganizationCountryCode("12345"));
+	}
+	@Test
+	public void testIsValidOriginOrganizationCountryCodeNull(){
+		assertFalse(services.isValidOriginOrganizationCountryCode(null));
+	}
+	@Test
+	public void testIsValidOriginOrganizationCountryCodeEmptyString(){
+		assertFalse(services.isValidOriginOrganizationCountryCode(""));
+	}
+
+	@Test
+	public void testIsValidOriginOrganizationNumberNull(){
+		assertFalse(services.isValidOriginOrganizationNumber(null));
+	}
+	@Test
+	public void testIsValidOriginOrganizationNumberCorrectLength(){
+		assertTrue(services.isValidOriginOrganizationNumber("123"));
+	}
+	@Test
+	public void testIsValidOriginOrganizationNumberBadLength(){
+		assertFalse(services.isValidOriginOrganizationNumber("1234567890"));
+	}
+	@Test
+	public void testIsValidOriginOrganizationNumberEmptyString(){
+		assertFalse(services.isValidOriginOrganizationNumber(""));
+	}
+
+	@Test
+	public void testIsValidRiginSortTypeCorrectParam(){
+		assertTrue(services.isValidRiginSortType("A"));
+	}
+	@Test
+	public void testIsValidRiginSortTypeIncorrectParam(){
+		assertFalse(services.isValidRiginSortType("ASDF"));
+	}
+	@Test
+	public void testIsValidRiginSortTypeNull(){
+		assertFalse(services.isValidRiginSortType(null));
+	}
+
+	@Test
+	public void testIsValidLoadRouteCodeCorrectParam(){
+		assertTrue(services.isValidLoadRouteCode("A1"));
+	}
+	@Test
+	public void testIsValidLoadRouteCodeIncorrectParam(){
+		assertFalse(services.isValidLoadRouteCode("A1B1ss"));
+	}
+	@Test
+	public void testIsValidLoadRouteCodeNull(){
+		assertFalse(services.isValidLoadRouteCode(null));
+	}
+
+	@Test
+	public void testIsValidEquipmentTrailerTypeCodeCorrectParam(){
+		assertTrue(services.isValidEquipmentTrailerTypeCode("A2"));
+	}
+	@Test
+	public void testIsValidEquipmentTrailerTypeCodeIncorrectParam(){
+		assertFalse(services.isValidEquipmentTrailerTypeCode("#$"));
+	}
+	@Test
+	public void testIsValidEquipmentTrailerTypeCodeNull(){
+		assertFalse(services.isValidEquipmentTrailerTypeCode(null));
+	}
+	@Test
+	public void testIsValidEquipmentTrailerTypeCodeBadLength(){
+		assertFalse(services.isValidEquipmentTrailerTypeCode("A23SR4233"));
+	}
+
+	@Test
+	public void testIsValidLoadVolumeUtilizationPercentNull(){
+		assertFalse(services.isValidLoadVolumeUtilizationPercent(null));
+	}
+	@Test
+	public void testIsValidLoadVolumeUtilizationPercentGoodParam(){
+		assertTrue(services.isValidLoadVolumeUtilizationPercent(123));
+	}
+	@Test
+	public void testIsValidLoadVolumeUtilizationPercentIncorrectLengthParam(){
+		assertFalse(services.isValidLoadVolumeUtilizationPercent(123456));
+	}
+
+	@Test
+	public void testIsValidLoadEarliestPossibleDepartureTimestampBadFormat(){
+		assertFalse(services.isValidLoadEarliestPossibleDepartureTimestamp("13/22"));
+	}
+	@Test
+	public void testIsValidLoadEarliestPossibleDepartureTimestampCorrectFormat(){
+		assertTrue(services.isValidLoadEarliestPossibleDepartureTimestamp("13:22"));
+	}
+	@Test
+	public void testIsValidLoadEarliestPossibleDepartureTimestampEmpty(){
+		assertFalse(services.isValidLoadEarliestPossibleDepartureTimestamp(""));
+	}
+
+	@Test
+	public void testIsValidLoadEarliestDepartureDayOfWeekCorrectParam(){
+		assertTrue(services.isValidLoadEarliestDepartureDayOfWeek(5));
+	}
+	@Test
+	public void testIsValidLoadEarliestDepartureDayOfWeekIncorrectParam(){
+		assertFalse(services.isValidLoadEarliestDepartureDayOfWeek(10));
+	}
+
+
+	@Test
+	public void testIsValidUnloadLoadDestinationOrganizationNumberCorrectParam(){
+		assertTrue(services.isValidUnloadLoadDestinationOrganizationNumber("AQW12"));
+	}
+	@Test
+	public void testIsValidUnloadLoadDestinationOrganizationNumberIncorrectParam(){
+		assertFalse(services.isValidUnloadLoadDestinationOrganizationNumber("$#%$"));
+	}
+	@Test
+	public void testIsValidUnloadLoadDestinationOrganizationNumberEmpty(){
+		assertFalse(services.isValidUnloadLoadDestinationOrganizationNumber(""));
+	}
+
+
+	@Test
+	public void testIsValidUnloadLoadDestinationSortTypeCorrectParam(){
+		assertTrue(services.isValidUnloadLoadDestinationSortType("S"));
+	}
+	@Test
+	public void testIsValidUnloadLoadDestinationSortTypeIncorrectParam(){
+		assertFalse(services.isValidUnloadLoadDestinationSortType("Z"));
+	}
+
+
 }

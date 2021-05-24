@@ -294,16 +294,18 @@ public class ValidationsService {
     }
 
     public boolean isValidLoadEarliestPossibleDepartureTimestamp( String date ){
+    	if ( date.isEmpty() ) return false;
         pattern = Pattern.compile("\\d{2}:\\d{2}");
         matcher = pattern.matcher(date);
         return matcher.matches();
     }
 
     public boolean isValidLoadEarliestDepartureDayOfWeek( Integer day ){
-	    return day >=1 && day <=7;
+    	return day >=1 && day <=7;
     }
 
     public boolean isValidUnloadLoadDestinationOrganizationNumber( String value  ){
+    	if ( value.isEmpty() ) return false;
         pattern = Pattern.compile("\\w{1,5}");
         matcher = pattern.matcher(value);
         return matcher.matches();
